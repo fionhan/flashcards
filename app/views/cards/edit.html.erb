@@ -1,0 +1,12 @@
+<%= render "shared/card", locals: {card: @card} %>
+<%= form_for @card,url: {action: "update",method: :patch} do |f| %>
+    <div>
+      <%= f.label :front, 'Front' %>
+      <%= f.text_field :front %>
+    </div>
+    <div>
+      <%= f.label :back, 'Back' %>
+      <%= f.text_field :back %>
+    </div>
+    <%= f.submit 'Edit Card' %>
+<% end %>
