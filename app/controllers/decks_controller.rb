@@ -1,5 +1,9 @@
 class DecksController < ApplicationController
   def index
-    @decks=Deck.all
+    if logged_in?
+      @decks=current_user.decks
+    else
+      redirect_to root
+    end
   end
 end

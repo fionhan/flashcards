@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603053820) do
+ActiveRecord::Schema.define(version: 20150604014831) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "front"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150603053820) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
