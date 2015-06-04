@@ -1,4 +1,4 @@
 class Student<User
-  has_one :deck, as: :playable
+  has_many :decks, as: :playable
   # has_one :deck
 end
