@@ -3,11 +3,11 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :decks do |t|
       t.string :name
-      #t.belongs_to :user
+      t.belongs_to :user
       #it does not need polymorphyc association because student and teacher are stored in one table
       #their ids are not same to each other!!
-      t.string :playable_type
-      t.integer :playable_id
+      #t.string :playable_type
+      #t.integer :playable_id
       t.timestamps
     end
 
