@@ -1,13 +1,5 @@
 class CreateTables < ActiveRecord::Migration
   def change
-    create_table :users do |t|
-      t.string :name
-      t.string :country
-      t.string :student_no
-      t.string :teacher_no
-      t.string :type
-      t.timestamps
-    end
 
     create_table :decks do |t|
       t.string :name
