@@ -1,0 +1,8 @@
+<%= render partial: 'shared/edit_error_message',object: @deck,as: :item%>
+<%= form_for @deck, url: {action: "update", method: :patch} do |f| %>
+    <div>
+      <%= f.label :name, 'Name' %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit 'Edit Deck' %>
+<% end %>

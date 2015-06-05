@@ -1,6 +1,10 @@
 <h2>Decks List</h2>
-<% @decks.each do |deck|%>
+<h2><%= link_to 'NewDeck', new_deck_path %></h2>
+
+<% @decks.each do |deck| %>
     <div>
-      <%= link_to deck.name,deck_cards_path(deck.id) %>
+      <%= link_to deck.name, deck_cards_path(deck.id) %>
+      <%= link_to 'Edit', edit_deck_path(deck) %>
+      <%= link_to 'Delete', deck_path(deck), method: :delete %>
     </div>
-<%end%>
+<% end %>

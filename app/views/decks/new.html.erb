@@ -1,0 +1,7 @@
+<%= form_for @deck,url: {action:"create",method: :post} do |f| %>
+    <div>
+      <%= f.label :name, 'Name' %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit 'New Card' %>
+<% end %>

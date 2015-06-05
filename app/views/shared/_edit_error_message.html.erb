@@ -1,0 +1,8 @@
+<div>
+  <% if item.errors.any? %>
+      <%= pluralize(item.errors.count, "error") %>
+      <% item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+  <% end %>
+</div>
