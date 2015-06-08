@@ -4,24 +4,22 @@ class UsersController<ApplicationController
   end
 
   def create
-    if user_params[:type]
-      if user_params[:type]=="Teacher"
-        @user=Teacher.new(user_params)
-      elsif user_params[:type]=="Student"
-        @user=Student.new(user_params)
-      end
-      if (@user.save)
-        log_in @user
-        flash[:success] = "welcome to flashcards app #{@user.name}"
-        redirect_to decks_path
-      else
-        render :new
-      end
+    @user=create_with_user_service
+    if @user && @user.save
+      log_in @user
+      flash[:success] = "welcome to flashcards app #{@user.name}"
+      redirect_to decks_path
+    else
+      render :new
     end
   end
 
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :type)
+  end
+
+  def create_with_user_service
+    UserService.new(user_params).create_user#use a service to handle the logical rules
   end
 end
