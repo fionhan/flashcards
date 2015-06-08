@@ -1,9 +1,12 @@
 class DecksController < ApplicationController
+  before_action :require_login
   def index
-    if logged_in?
-      @decks=current_user.decks
-    else
-      redirect_to root
+    @decks=current_user.decks
+  end
+
+  def require_login
+    if !logged_in?
+      redirect_to root_path
     end
   end
 end
